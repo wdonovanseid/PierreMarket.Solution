@@ -9,6 +9,8 @@
 <hr />
 <h4>@Html.DisplayFor(model => model.TreatDetails)</h4>
 
+<p>Treat Costs: @Html.DisplayFor(model => model.TreatCost)</p>
+
 @if(@Model.Flavors.Count == 0)
 {
   <p>This Treat does not have any flavors</p>
@@ -19,10 +21,13 @@ else
   @foreach (FlavorTreat join in Model.Flavors)
   {
     <li>@Html.ActionLink(@join.Flavor.FlavorName, "Details", "Flavors", new { id = join.Flavor.FlavorId })</li>
-    @using (Html.BeginForm("DeleteFlavor", "Treats"))
+    @if (User.Identity.Name == "admin@pierremarket.local")
     {
-      @Html.Hidden("FlavorTreatId", @join.FlavorTreatId)
-      <input type="submit" value="Remove"/>
+      @using (Html.BeginForm("DeleteFlavor", "Treats"))
+      {
+        @Html.Hidden("FlavorTreatId", @join.FlavorTreatId)
+        <input type="submit" value="Remove"/>
+      }
     }
   }
   </ul>

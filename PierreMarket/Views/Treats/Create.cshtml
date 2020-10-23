@@ -12,5 +12,7 @@
 
   <p>Details: @Html.TextBoxFor(model => model.TreatDetails, new { @required = "required"})</p>
 
+  <p>Cost: $@Html.TextBoxFor(model => model.TreatCost, new { @required = "required"})</p>
+
   <input type="submit" value="Add" class="btn btn-dark" />
 }

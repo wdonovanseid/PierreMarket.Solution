@@ -50,7 +50,6 @@ Main Programs
 * MySQL
 * C# / ASP.NET Core 
 * MVC
-* MSTest
 * CSS
 * Bootstrap
 * Entity Framework

@@ -14,6 +14,7 @@ namespace PierreMarket.Models
     public int TreatId { get; set; }
     public string TreatName { get; set; }
     public string TreatDetails { get; set; }
+    public double TreatCost { get; set; }
     public virtual ICollection<FlavorTreat> Flavors { get; set; }
     public virtual ICollection<OrderTreat> Orders { get; set;}
 

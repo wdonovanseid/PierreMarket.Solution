@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreMarket.Models.Order
+
+<h4>Edit Order #: @Html.DisplayFor(model => model.OrderId)</h4>
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.OrderId)
+
+  <p>New Order Notes: @Html.EditorFor(model => model.OrderNotes, new { @required = "required"})</p>
+
+  <input type="submit" value="Edit" class="btn btn-dark" />
+}

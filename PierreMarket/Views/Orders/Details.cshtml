@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreMarket.Models.Order
+@using PierreMarket.Models
+
+<h2>Order #: @Html.DisplayFor(model => model.OrderId)</h2>
+<hr />
+<h4>@Html.DisplayFor(model => model.OrderNotes)</h4>
+
+@if(@Model.Treats.Count == 0)
+{
+  <p>This Order does not have any treats</p>
+}
+else
+{
+  <ul>
+  @foreach (Treat x in Model.Treats)
+  {
+    <li>@Html.ActionLink(@x.TreatName, "Details", "Treats", new { id = x.TreatId })</li>
+    @using (Html.BeginForm("DeleteTreat", "Orders"))
+    {
+      @Html.Hidden("TreatId", @x.TreatId)
+      <input type="submit" value="Remove"/>
+    }
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Edit Order", "Edit", new { id = Model.OrderId })</p>
+<p>@Html.ActionLink("Delete Order", "Delete", new { id = Model.OrderId })</p>
+<p>@Html.ActionLink("Add Treat", "AddTreat", new { id = Model.OrderId })</p>

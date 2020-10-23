@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreMarket.Models.Order
+
+<h4>Add a new Order</h4>
+
+@using (Html.BeginForm())
+{
+  <p>Order Notes: @Html.TextBoxFor(model => model.OrderNotes, new { @required = "required"})</p>
+
+  <input type="submit" value="Add" class="btn btn-dark" />
+}

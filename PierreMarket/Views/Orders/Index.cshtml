@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierreMarket.Models;
+
+<div class="jumbotron">
+  <h1>List of Orders</h1>
+</div>
+
+@if(Model.Count == 0)
+{
+  <p>No Order have been added.</p>
+}
+<ul>
+  @foreach(Order x in Model)
+  {
+    <li>Order #: @x.OrderId | @Html.ActionLink("Details", "Details", new { id = x.OrderId })</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Add an Order", "Create")</p>

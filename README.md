@@ -8,6 +8,11 @@
 
 This is an Epicodus Friday Project in using Authentication with Identity to create a MVC Web Application to market Pierre's sweet and savory treats.
 
+### Seeded Admin
+
+The email for the seeded Admin is: "admin@pierremarket.local"
+The password for the seeded Admin is: "NotSecure123!!"
+
 ## Setup/Installation
 
 ### Project from GitHub

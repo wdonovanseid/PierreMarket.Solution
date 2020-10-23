@@ -28,7 +28,7 @@ else
   </ul>
 }
 
-@if (User.Identity.Name == "admin@library.local")
+@if (User.Identity.Name == "admin@pierremarket.local")
 {
   <p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
   <p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>

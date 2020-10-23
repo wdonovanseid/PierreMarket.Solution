@@ -1,5 +1,6 @@
 @{
   Layout = "_Layout";
+  string parameterValue = Model.TreatCost.ToString("0.00");
 }
 
 @model PierreMarket.Models.Treat
@@ -9,7 +10,7 @@
 <hr />
 <h4>@Html.DisplayFor(model => model.TreatDetails)</h4>
 
-<p>Treat Costs: @Html.DisplayFor(model => model.TreatCost)</p>
+<p>Treat Costs: $@Html.DisplayFor(model => parameterValue)</p>
 
 @if(@Model.Flavors.Count == 0)
 {

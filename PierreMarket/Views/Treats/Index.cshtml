@@ -15,7 +15,8 @@
 <ul>
   @foreach(Treat x in Model)
   {
-    <li>$@x.TreatCost | @x.TreatName | @Html.ActionLink("Details", "Details", new { id = x.TreatId })</li>
+    string parameterValue = x.TreatCost.ToString("0.00");
+    <li>$@parameterValue | @x.TreatName | @Html.ActionLink("Details", "Details", new { id = x.TreatId })</li>
   }
 </ul>
 

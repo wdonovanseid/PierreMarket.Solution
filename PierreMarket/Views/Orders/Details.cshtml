@@ -1,5 +1,6 @@
 @{
   Layout = "_Layout";
+  string parameterValue = Model.OrderTotalCost.ToString("0.00");
 }
 
 @model PierreMarket.Models.Order
@@ -9,7 +10,7 @@
 <hr />
 <h4>@Html.DisplayFor(model => model.OrderNotes)</h4>
 
-<p>Order Total Cost: $@Html.DisplayFor(model => model.OrderTotalCost)</p>
+<p>Order Total Cost: $@Html.DisplayFor(model => parameterValue)</p>
 
 @if(@Model.Treats.Count == 0)
 {
@@ -20,7 +21,7 @@ else
   <ul>
   @foreach (OrderTreat x in Model.Treats)
   {
-    <li>@Html.ActionLink(@x.Treat.TreatName, "Details", "Treats", new { id = x.Treat.TreatId })</li>
+    <li>@Html.ActionLink(@x.Treat.TreatName, "Details", "Treats", new { id = x.Treat.TreatId }) | $@x.Treat.TreatCost.ToString("0.00")</li>
     @using (Html.BeginForm("DeleteTreat", "Orders"))
     {
       @Html.Hidden("OrderTreatId", @x.OrderTreatId)

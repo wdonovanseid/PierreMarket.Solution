@@ -26,13 +26,13 @@ namespace PierreMarket.Controllers
       return View(model);
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public ActionResult Create()
     {
       return View();
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost]
     public ActionResult Create(Flavor newObject)
     {
@@ -50,7 +50,7 @@ namespace PierreMarket.Controllers
       return View(model);
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public ActionResult AddTreat(int id)
     {
       Flavor model = _db.Flavors.FirstOrDefault(x => x.FlavorId == id);
@@ -58,7 +58,7 @@ namespace PierreMarket.Controllers
       return View(model);
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost]
     public ActionResult AddTreat(Flavor objectGettingAdd, int TreatId)
     {
@@ -73,7 +73,7 @@ namespace PierreMarket.Controllers
       return RedirectToAction("Details", new { id = objectGettingAdd.FlavorId});
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost]
     public ActionResult DeleteTreat(int FlavorTreatId)
     {
@@ -83,14 +83,14 @@ namespace PierreMarket.Controllers
       return RedirectToAction("Index");
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public ActionResult Edit(int id)
     {
       Flavor model = _db.Flavors.FirstOrDefault(x => x.FlavorId == id);
       return View(model);
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost]
     public ActionResult Edit(Flavor edittedObject)
     {
@@ -99,14 +99,14 @@ namespace PierreMarket.Controllers
       return RedirectToAction("Index");
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public ActionResult Delete(int id)
     {
       Flavor model = _db.Flavors.FirstOrDefault(x => x.FlavorId == id);
       return View(model);
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {

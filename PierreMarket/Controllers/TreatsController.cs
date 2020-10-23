@@ -26,13 +26,13 @@ namespace PierreMarket.Controllers
       return View(model);
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public ActionResult Create()
     {
       return View();
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost]
     public ActionResult Create(Treat treat)
     {
@@ -50,7 +50,7 @@ namespace PierreMarket.Controllers
       return View(model);
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public ActionResult AddFlavor(int id)
     {
       Treat model = _db.Treats.FirstOrDefault(x => x.TreatId == id);
@@ -58,7 +58,7 @@ namespace PierreMarket.Controllers
       return View(model);
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost]
     public ActionResult AddFlavor(Treat treat, int FlavorId)
     {
@@ -73,7 +73,7 @@ namespace PierreMarket.Controllers
       return RedirectToAction("Details", new { id = treat.TreatId});
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost]
     public ActionResult DeleteFlavor(int FlavorTreatId)
     {
@@ -83,14 +83,14 @@ namespace PierreMarket.Controllers
       return RedirectToAction("Index");
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public ActionResult Edit(int id)
     {
       Treat model = _db.Treats.FirstOrDefault(x => x.TreatId == id);
       return View(model);
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost]
     public ActionResult Edit(Treat edittedObject)
     {
@@ -99,14 +99,14 @@ namespace PierreMarket.Controllers
       return RedirectToAction("Index");
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public ActionResult Delete(int id)
     {
       Treat model = _db.Treats.FirstOrDefault(x => x.TreatId == id);
       return View(model);
     }
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {

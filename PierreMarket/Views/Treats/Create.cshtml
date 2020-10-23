@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreMarket.Models.Treat
+
+<h4>Add a new Treat</h4>
+
+@using (Html.BeginForm())
+{
+  <p>Name: @Html.TextBoxFor(model => model.TreatName, new { @required = "required"})</p>
+
+  <p>Details: @Html.TextBoxFor(model => model.TreatDetails, new { @required = "required"})</p>
+
+  <input type="submit" value="Add" class="btn btn-dark" />
+}

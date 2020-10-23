@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreMarket.Models.Treat
+@using PierreMarket.Models
+
+<h2>@Html.DisplayFor(model => model.TreatName)</h2>
+<hr />
+<h4>@Html.DisplayFor(model => model.TreatDetails)</h4>
+
+@if(@Model.Flavors.Count == 0)
+{
+  <p>This Treat does not have any flavors</p>
+}
+else
+{
+  <ul>
+  @foreach (FlavorTreat join in Model.Flavors)
+  {
+    <li>@Html.ActionLink(@join.Flavor.FlavorName, "Details", "Flavors", new { id = join.Flavor.FlavorId })</li>
+    @using (Html.BeginForm("DeleteFlavor", "Treats"))
+    {
+      @Html.Hidden("FlavorTreatId", @join.FlavorTreatId)
+      <input type="submit" value="Remove"/>
+    }
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Add Flavor", "AddFlavor", new { id = Model.TreatId })</p>

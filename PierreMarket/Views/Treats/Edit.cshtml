@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreMarket.Models.Treat
+
+<h4>Edit this treat: @Html.DisplayFor(model => model.TreatName)</h4>
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  <p>New Name: @Html.EditorFor(model => model.TreatName, new { @required = "required"})</p>
+
+  <p>New Details: @Html.TextBoxFor(model => model.TreatDetails, new { @required = "required"})</p>
+
+  <input type="submit" value="Edit" class="btn btn-dark" />
+}

@@ -4,6 +4,10 @@ using PierreMarket.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace PierreMarket.Controllers
 {
@@ -22,11 +26,13 @@ namespace PierreMarket.Controllers
       return View(model);
     }
 
+    [Authorize]
     public ActionResult Create()
     {
       return View();
     }
 
+    [Authorize]
     [HttpPost]
     public ActionResult Create(Treat treat)
     {
@@ -44,6 +50,7 @@ namespace PierreMarket.Controllers
       return View(model);
     }
 
+    [Authorize]
     public ActionResult AddFlavor(int id)
     {
       Treat model = _db.Treats.FirstOrDefault(x => x.TreatId == id);
@@ -51,6 +58,7 @@ namespace PierreMarket.Controllers
       return View(model);
     }
 
+    [Authorize]
     [HttpPost]
     public ActionResult AddFlavor(Treat treat, int FlavorId)
     {
@@ -65,6 +73,7 @@ namespace PierreMarket.Controllers
       return RedirectToAction("Details", new { id = treat.TreatId});
     }
 
+    [Authorize]
     [HttpPost]
     public ActionResult DeleteFlavor(int FlavorTreatId)
     {
@@ -74,12 +83,14 @@ namespace PierreMarket.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult Edit(int id)
     {
       Treat model = _db.Treats.FirstOrDefault(x => x.TreatId == id);
       return View(model);
     }
 
+    [Authorize]
     [HttpPost]
     public ActionResult Edit(Treat edittedObject)
     {
@@ -87,12 +98,15 @@ namespace PierreMarket.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    [Authorize]
     public ActionResult Delete(int id)
     {
       Treat model = _db.Treats.FirstOrDefault(x => x.TreatId == id);
       return View(model);
     }
 
+    [Authorize]
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {

@@ -14,5 +14,5 @@ namespace PierreMarket.Models
     public virtual ApplicationUser User { get; set; }
 
     public ICollection<Treat> Treats { get;}
-}
+  }
 }

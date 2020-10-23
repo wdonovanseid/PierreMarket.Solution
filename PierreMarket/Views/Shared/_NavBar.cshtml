@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
   <div class="container">
-    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Factory</a>
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Pierre's Market</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,22 +21,27 @@
             <a href="/Orders" class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
           }
         </li>
+        <li class="nav-item">
+          
+        </li>
       </ul>
-      <div class="logout">
-        @using System.Security.Claims
-        @if (User.Identity.IsAuthenticated)
-        {
-          @using (Html.BeginForm("LogOff", "Account"))
-          {
-            <p><input type="submit" value="Log out" class="btn btn-secondary btn-sm" /></p>
-          }
-        }
-        else
-        {
-          <p>@Html.ActionLink("Login", "Login", "Account", null, new { @class="btn btn-info btn-sm"})</p>
-          <p>@Html.ActionLink("Register", "Register", "Account", null, new { @class="btn btn-info btn-sm"})</p>
-        }
-      </div>
     </div>
+    <div class="logout">
+            @using System.Security.Claims
+            @if (User.Identity.IsAuthenticated)
+            {
+              @using (Html.BeginForm("LogOff", "Account"))
+              {
+                <p><input type="submit" value="Log out" class="btn btn-secondary btn-sm" /></p>
+              }
+            }
+            else
+            {
+              <ul>
+                @Html.ActionLink("Login", "Login", "Account", null, new { @class="btn btn-info btn-sm"})
+                @Html.ActionLink("Register", "Register", "Account", null, new { @class="btn btn-info btn-sm"})
+              </ul>
+            }
+          </div>
   </div>
 </nav>

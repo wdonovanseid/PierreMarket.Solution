@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+  <div class="container">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Factory</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+      <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+          <a href="/" class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/Flavors" class="nav-link text-dark" asp-area="" asp-controller="Flavors" asp-action="Index">Flavors</a>
+        </li>
+        <li class="nav-item">
+          <a href="/Treats" class="nav-link text-dark" asp-area="" asp-controller="Treats" asp-action="Index">Treats</a>
+        </li>
+      </ul>
+      <div class="logout">
+        @using System.Security.Claims
+        @if (User.Identity.IsAuthenticated)
+        {
+          @using (Html.BeginForm("LogOff", "Account"))
+          {
+            <p><input type="submit" value="Log out" class="btn btn-secondary btn-sm" /></p>
+          }
+        }
+        else
+        {
+          <p>@Html.ActionLink("Login", "Login", "Account", null, new { @class="btn btn-info btn-sm"})</p>
+          <p>@Html.ActionLink("Register", "Register", "Account", null, new { @class="btn btn-info btn-sm"})</p>
+        }
+      </div>
+    </div>
+  </div>
+</nav>

@@ -8,6 +8,8 @@ namespace PierreMarket.Models
     public virtual DbSet<Flavor> Flavors { get; set; }
     public virtual DbSet<Treat> Treats { get; set; }
     public DbSet<FlavorTreat> FlavorTreat { get; set; }
+    public virtual DbSet<Order> Orders { get; set; }
+    public DbSet<OrderTreat> OrderTreat { get; set; }
 
     public PierreMarketContext(DbContextOptions options) : base(options) {}
   }

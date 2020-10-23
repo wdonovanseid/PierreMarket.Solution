@@ -16,12 +16,12 @@
 else
 {
   <ul>
-  @foreach (Treat x in Model.Treats)
+  @foreach (OrderTreat x in Model.Treats)
   {
-    <li>@Html.ActionLink(@x.TreatName, "Details", "Treats", new { id = x.TreatId })</li>
+    <li>@Html.ActionLink(@x.Treat.TreatName, "Details", "Treats", new { id = x.Treat.TreatId })</li>
     @using (Html.BeginForm("DeleteTreat", "Orders"))
     {
-      @Html.Hidden("TreatId", @x.TreatId)
+      @Html.Hidden("OrderTreatId", @x.OrderTreatId)
       <input type="submit" value="Remove"/>
     }
   }

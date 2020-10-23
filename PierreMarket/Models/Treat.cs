@@ -8,15 +8,14 @@ namespace PierreMarket.Models
     public Treat()
     {
       this.Flavors = new HashSet<FlavorTreat>();
+      this.Orders = new HashSet<OrderTreat>();
     }
 
     public int TreatId { get; set; }
     public string TreatName { get; set; }
     public string TreatDetails { get; set; }
     public virtual ICollection<FlavorTreat> Flavors { get; set; }
-
-    public int OrderId { get; set;}
-    public virtual Order Order { get; set;}
+    public virtual ICollection<OrderTreat> Orders { get; set;}
 
   }
 }

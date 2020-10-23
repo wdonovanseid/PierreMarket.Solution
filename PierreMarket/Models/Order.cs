@@ -6,13 +6,13 @@ namespace PierreMarket.Models
   {
     public Order()
     {
-      this.Treats = new HashSet<Treat>();
+      this.Treats = new HashSet<OrderTreat>();
     }
 
     public int OrderId { get; set; }
     public string OrderNotes { get; set; }
     public virtual ApplicationUser User { get; set; }
 
-    public ICollection<Treat> Treats { get;}
+    public ICollection<OrderTreat> Treats { get;}
   }
 }

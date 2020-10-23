@@ -15,6 +15,12 @@
         <li class="nav-item">
           <a href="/Treats" class="nav-link text-dark" asp-area="" asp-controller="Treats" asp-action="Index">Treats</a>
         </li>
+        <li class="nav-item">
+          @if (User.Identity.IsAuthenticated)
+          {
+            <a href="/Orders" class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
+          }
+        </li>
       </ul>
       <div class="logout">
         @using System.Security.Claims

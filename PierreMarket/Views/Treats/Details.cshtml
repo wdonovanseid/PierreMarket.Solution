@@ -28,6 +28,9 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
-<p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>
-<p>@Html.ActionLink("Add Flavor", "AddFlavor", new { id = Model.TreatId })</p>
+@if (User.Identity.Name == "admin@library.local")
+{
+  <p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
+  <p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>
+  <p>@Html.ActionLink("Add Flavor", "AddFlavor", new { id = Model.TreatId })</p>
+}

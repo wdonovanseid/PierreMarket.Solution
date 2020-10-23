@@ -10,8 +10,8 @@ This is an Epicodus Friday Project in using Authentication with Identity to crea
 
 ### Seeded Admin
 
-The email for the seeded Admin is: "admin@pierremarket.local"
-The password for the seeded Admin is: "NotSecure123!!"
+* Email: "admin@pierremarket.local"
+* Password: "NotSecure123!!"
 
 ## Setup/Installation
 
@@ -57,8 +57,8 @@ Main Programs
 
 
 ### Other Links
-[GitHub](https://blog.agood.cloud/img/common/github.png)
-[Will's GitHub](https://github.com/wdonovanseid)
+* [GitHub](https://blog.agood.cloud/img/common/github.png)
+* [Will's GitHub](https://github.com/wdonovanseid)
 
 ### License
 

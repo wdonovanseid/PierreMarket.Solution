@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreMarket.Models.Flavor
+
+<h4>Add a new Flavor</h4>
+
+@using (Html.BeginForm())
+{
+  <p>Name: @Html.TextBoxFor(model => model.FlavorName, new { @required = "required"})</p>
+
+  <p>Details: @Html.TextBoxFor(model => model.FlavorDetails, new { @required = "required"})</p>
+
+  <input type="submit" value="Add" class="btn btn-dark" />
+}

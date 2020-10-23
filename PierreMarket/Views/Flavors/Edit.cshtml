@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreMarket.Models.Flavor
+
+<h4>Edit this flavor: @Html.DisplayFor(model => model.FlavorName)</h4>
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+
+  <p>New Name: @Html.EditorFor(model => model.FlavorName, new { @required = "required"})</p>
+
+  <p>New Details: @Html.TextBoxFor(model => model.FlavorDetails, new { @required = "required"})</p>
+
+  <input type="submit" value="Edit" class="btn btn-dark" />
+}

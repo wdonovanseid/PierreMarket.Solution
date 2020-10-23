@@ -11,6 +11,7 @@ namespace PierreMarket.Models
 
     public int OrderId { get; set; }
     public string OrderNotes { get; set; }
+    public double OrderTotalCost { get; set; }
     public virtual ApplicationUser User { get; set; }
 
     public ICollection<OrderTreat> Treats { get;}

@@ -70,6 +70,9 @@ namespace PierreMarket.Controllers
       {
         _db.OrderTreat.Add(new OrderTreat() { TreatId = TreatId, OrderId = objectGettingAdd.OrderId });
       }
+      Order order = _db.Orders.FirstOrDefault(x => x.OrderId == objectGettingAdd.OrderId);
+      Treat treat = _db.Treats.FirstOrDefault(x => x.TreatId == TreatId);
+      order.OrderTotalCost += treat.TreatCost;
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = objectGettingAdd.OrderId});
     }
@@ -78,6 +81,9 @@ namespace PierreMarket.Controllers
     public ActionResult DeleteTreat(int OrderTreatId)
     {
       OrderTreat joinEntry = _db.OrderTreat.FirstOrDefault(entry => entry.OrderTreatId == OrderTreatId);
+      Order order = _db.Orders.FirstOrDefault(x => x.OrderId == joinEntry.OrderId);
+      Treat treat = _db.Treats.FirstOrDefault(x => x.TreatId == joinEntry.TreatId);
+      order.OrderTotalCost -= treat.TreatCost;
       _db.OrderTreat.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");

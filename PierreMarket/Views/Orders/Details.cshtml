@@ -9,6 +9,8 @@
 <hr />
 <h4>@Html.DisplayFor(model => model.OrderNotes)</h4>
 
+<p>Order Total Cost: $@Html.DisplayFor(model => model.OrderTotalCost)</p>
+
 @if(@Model.Treats.Count == 0)
 {
   <p>This Order does not have any treats</p>

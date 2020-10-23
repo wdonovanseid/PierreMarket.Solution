@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierreMarket.Models;
+
+<h4>List of Flavors</h4>
+@if(Model["flavors"].Count == 0)
+{
+  <p>No Flavors have been added yet</p>
+}
+<ul>
+  @foreach (Flavor x in @Model["flavors"])
+  {
+    <li>@Html.ActionLink(@x.FlavorName, "Details", "Flavors", new { id = x.FlavorId})</li>
+  }
+</ul>
+
+<h4>List of Treats</h4>
+@if(Model["treats"].Count == 0)
+{
+  <p>No Treats have been added yet</p>
+}
+<ul>
+  @foreach (Treat x in @Model["treats"])
+  {
+    <li>@Html.ActionLink(@x.TreatName, "Details", "Treats", new { id = x.TreatId})</li>
+  }
+</ul>

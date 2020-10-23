@@ -6,7 +6,7 @@
 
 @model LoginViewModel
 
-<h2>Log in with your account</h2>
+<h2>Log in to your account</h2>
 <hr />
 @using (Html.BeginForm())
 {
@@ -14,5 +14,5 @@
 
     <p>Password: @Html.PasswordFor(m => m.Password)</p>
 
-    <input type="submit" value="Log in" class="btn btn-default" />
+    <input type="submit" value="Log in" class="btn btn-success" />
 }

@@ -22,7 +22,10 @@
           }
         </li>
         <li class="nav-item">
-          
+          @if (User.Identity.Name == "admin@pierremarket.local")
+          {
+            <a href="/ManageUsers" class="nav-link text-dark" asp-area="" asp-controller="ManageUsers" asp-action="Index">Manage Users</a>
+          }
         </li>
       </ul>
     </div>
